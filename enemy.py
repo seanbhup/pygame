@@ -22,6 +22,6 @@ class Enemy(Sprite):
 
 		self.rect.x -= dx * self.speed;
 		self.rect.y -= dy * self.speed;
-
+		# draws
 	def draw_me(self):
 		self.screen.blit(self.image, self.rect);
