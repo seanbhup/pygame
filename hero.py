@@ -4,7 +4,7 @@ from pygame.sprite import Sprite
 class Hero(Sprite):
     def __init__(self,screen,settings):
         super(Hero,self).__init__()
-        self.image = pygame.image.load("Pateesa2.png")
+        self.image = pygame.image.load("Pateesa2_hammer_up.png")
         self.image = pygame.transform.scale(self.image,(200,200))
         self.screen = screen
         self.rect =  self.image.get_rect()

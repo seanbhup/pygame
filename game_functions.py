@@ -1,9 +1,9 @@
 import pygame
 import sys
 from settings import Settings
+from bullet import Bullet
 
-
-def Check_Events(hero,play_button,game_settings):
+def Check_Events(hero,bullets,play_button,game_settings,screen):
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit()
@@ -27,6 +27,22 @@ def Check_Events(hero,play_button,game_settings):
                 hero.moving_up = True
             elif event.key == pygame.K_DOWN:
                 hero.moving_down = True
+            elif event.key == pygame.K_w:
+                new_bullet = Bullet(screen,hero,game_settings, "up", "vert")
+                bullets.add(new_bullet);
+            elif event.key == pygame.K_s:
+                new_bullet = Bullet(screen,hero,game_settings, "down", "vert")
+                bullets.add(new_bullet);
+            elif event.key == pygame.K_a:
+                new_bullet = Bullet(screen,hero,game_settings, "left", "hori")
+                bullets.add(new_bullet);
+            elif event.key == pygame.K_d:
+                new_bullet = Bullet(screen,hero,game_settings, "right", "hori")
+                bullets.add(new_bullet);
+            elif event.key == pygame.K_f:
+                hero.image = pygame.image.load("Pateesa2.png")
+                
+
         elif event.type == pygame.KEYUP:
             # print event.key
             if event.key == pygame.K_RIGHT:
@@ -37,3 +53,8 @@ def Check_Events(hero,play_button,game_settings):
                 hero.moving_up = False
             elif event.key == pygame.K_DOWN:
                 hero.moving_down = False
+            elif event.key == pygame.K_f:
+                hero.image = pygame.image.load("Pateesa2_hammer_up.png")
+
+            # elif event.key == pygame.K_SPACE:
+            #     bullet.shooting_left = False
